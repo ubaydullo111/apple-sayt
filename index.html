@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone 15 Pro - Apple (UZ)</title>
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #000000;
+            --text-color: #f5f5f7;
+            --secondary-text: #86868b;
+            --nav-bg: rgba(22, 22, 23, 0.8);
+            --card-bg: #161617;
+            --accent-blue: #2997ff;
+            --border-color: #424245;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* APPLE NAVIGATION BAR */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1024px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-list a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 12px;
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+
+        .nav-list a:hover {
+            opacity: 1;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            color: var(--text-color);
+            font-size: 14px;
+            opacity: 0.8;
+            cursor: pointer;
+        }
+
+        .nav-icons i:hover {
+            opacity: 1;
+        }
+
+        /* SUBBAR (PRODUCT BAR) */
+        .sub-nav {
+            position: fixed;
+            top: 48px;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 8%;
+        }
+
+        .sub-nav h2 {
+            font-size: 21px;
+            font-weight: 600;
+        }
+
+        .buy-nav-btn {
+            background: var(--accent-blue);
+            color: white;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .buy-nav-btn:hover {
+            background: #0077ed;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 100px;
+            background: radial-gradient(circle, #111 0%, #000 80%);
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 600;
+            letter-spacing: -0.015em;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #fff, #86868b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 24px;
+            color: var(--secondary-text);
+            max-width: 650px;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .hero-img-container {
+            width: 100%;
+            max-width: 700px;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* CONFIGURATOR SECTION (BUY SECTION) */
+        .configurator {
+            max-width: 1000px;
+            margin: 100px auto;
+            padding: 0 20px;
+        }
+
+        .config-title {
+            font-size: 40px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .config-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .config-preview {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            position: sticky;
+            top: 120px;
+        }
+
+        .config-preview img {
+            width: 100%;
+            max-height: 320px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .price-tag {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-top: 15px;
+        }
+
+        .config-options h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .option-group {
+            margin-bottom: 30px;
+        }
+
+        .color-options, .storage-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .option-card {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            padding: 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .option-card.active {
+            border-color: var(--accent-blue);
+        }
+
+        .color-circle {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            margin: 0 auto 8px;
+        }
+
+        .storage-card {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .storage-card span {
+            display: block;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .storage-card p {
+            font-size: 12px;
+            color: var(--secondary-text);
+        }
+
+        .order-btn {
+            width: 100%;
+            background: var(--accent-blue);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .order-btn:hover {
+            background: #0077ed;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1d1d1f;
+            color: var(--secondary-text);
+            padding: 30px 5%;
+            font-size: 12px;
+            line-height: 1.5;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-list {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 36px;
+            }
+            .config-grid {
+                grid-template-columns: 1fr;
+            }
+            .config-preview {
+                position: relative;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- APPLE NAVIGATION BAR -->
+    <header>
+        <div class="nav-container">
+            <div class="logo"><i class="fab fa-apple"></i></div>
+            <ul class="nav-list">
+                <li><a href="#">Store</a></li>
+                <li><a href="#">Mac</a></li>
+                <li><a href="#">iPad</a></li>
+                <li><a href="#">iPhone</a></li>
+                <li><a href="#">Watch</a></li>
+                <li><a href="#">AirPods</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+            <div class="nav-icons">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-shopping-bag"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- SUBBAR -->
+    <div class="sub-nav">
+        <h2>iPhone 15 Pro</h2>
+        <a href="#buy"><button class="nav-btn buy-nav-btn">Sotib olish</button></a>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>iPhone 15 Pro</h1>
+        <p>Titan. Juda kuchli. Juda yengil. Pro.</p>
+        <div class="hero-img-container">
+            <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=800&q=80" alt="iPhone 15 Pro" class="hero-img">
+        </div>
+    </section>
+
+    <!-- CONFIGURATOR SECTION -->
+    <section class="configurator" id="buy">
+        <h2 class="config-title">O'zingizga mos modelni tanlang.</h2>
+        
+        <div class="config-grid">
+            <!-- Chap qism: Rasm va Narx -->
+            <div class="config-preview">
+                <img id="productImg" src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80" alt="iPhone">
+                <p class="secondary-text">Tanlangan model narxi:</p>
+                <div class="price-tag" id="totalPrice">13,500,000 so'm</div>
+            </div>
+
+            <!-- O'ng qism: Parametrlar -->
+            <div class="config-options">
+                <!-- Rangni tanlash -->
+                <div class="option-group">
+                    <h3>1. Rangni tanlang</h3>
+                    <div class="color-options">
+                        <div class="option-card active" onclick="selectColor('Natural Titanium', '#b8b0a5', 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80', this)">
+                            <div class="color-circle" style="background-color: #b8b0a5;"></div>
+                            <span>Natural</span>
+                        </div>
+                        <div class="option-card" onclick="selectColor('Desert Titanium', '#d4af37', 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80', this)">
+                            <div class="color-circle" style="background-color: #d4af37;"></div>
+                            <span>Desert</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Xotirani tanlash -->
+                <div class="option-group">
+                    <h3>2. Xotira hajmini tanlang</h3>
+                    <div class="storage-options">
+                        <div class="option-card storage-card active" onclick="selectStorage(0, 13500000, this)">
+                            <span>128GB</span>
+                            <p>13,500,000 so'm</p>
+                        </div>
+                        <div class="option-card storage-card" onclick="selectStorage(2000000, 15500000, this)">
+                            <span>256GB</span>
+                            <p>15,500,000 so'm</p>
+                        </div>
+                        <div class="option-card storage-card" onclick="selectStorage(5000000, 18500000, this)">
+                            <span>512GB</span>
+                            <p>18,500,000 so'm</p>
+                        </div>
+                        <div class="option-card storage-card" onclick="selectStorage(8000000, 21500000, this)">
+                            <span>1TB</span>
+                            <p>21,500,000 so'm</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="order-btn" onclick="orderNow()">Sotib olish</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Boshqa xarid qilish usullari: <a href="#" style="color: var(--accent-blue); text-decoration: none;">Apple Store</a> yaqin aylanib chiqing yoki 1200 raqamiga qo'ng'iroq qiling.</p>
+        <p style="margin-top: 10px;">Copyright &copy; 2026 Apple Inc. Barcha huquqlar himoyalangan.</p>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIKA -->
+    <script>
+        let selectedColor = "Natural Titanium";
+        let storagePrice = 13500000;
+
+        function selectColor(colorName, colorHex, imgUrl, element) {
+            selectedColor = colorName;
+            
+            // Faol kartani belgilash
+            const cards = document.querySelectorAll('.color-options .option-card');
+            cards.forEach(c => c.classList.remove('active'));
+            element.classList.add('active');
+            
+            // Rasmni o'zgartirish
+            document.getElementById('productImg').src = imgUrl;
+        }
+
+        function selectStorage(addPrice, exactPrice, element) {
+            storagePrice = exactPrice;
+
+            // Faol xotira kartasini belgilash
+            const cards = document.querySelectorAll('.storage-options .option-card');
+            cards.forEach(c => c.classList.remove('active'));
+            element.classList.add('active');
+
+            // Narxni yangilash
+            document.getElementById('totalPrice').innerText = storagePrice.toLocaleString() + " so'm";
+        }
+
+        function orderNow() {
+            alert(`Tabriklaymiz! Siz iPhone 15 Pro (${selectedColor}, Narxi: ${storagePrice.toLocaleString()} so'm) modelini tanladingiz. Operatorlarimiz tez orada siz bilan bog'lanishadi!`);
+        }
+    </script>
+</body>
+</html> 
